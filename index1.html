@@ -1,0 +1,205 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Raju Tech and Technology</title>
+
+<style>
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background: #eef2ff;
+}
+header {
+  background: #101d45;
+  color: white;
+  text-align: center;
+  padding: 25px;
+}
+nav {
+  background: #1769aa;
+  padding: 15px;
+  text-align: center;
+}
+nav a {
+  color: white;
+  text-decoration: none;
+  margin: 12px;
+  font-weight: bold;
+}
+.container {
+  padding: 20px;
+  text-align: center;
+}
+.courses {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+  gap: 18px;
+}
+.course {
+  background: white;
+  padding: 22px;
+  border-radius: 12px;
+  box-shadow: 0 3px 10px #bbb;
+}
+.course button {
+  background: #1769aa;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+#details {
+  display: none;
+  background: white;
+  margin-top: 25px;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: left;
+  box-shadow: 0 3px 10px #bbb;
+}
+footer {
+  background: #101d45;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>RAJU TECH AND TECHNOLOGY</h1>
+<p>Learn Technology | Build Skills | Get Success</p>
+</header>
+
+<nav>
+<a href="#">Home</a>
+<a href="#courses">Courses</a>
+<a href="#contact">Contact</a>
+</nav>
+
+<div class="container">
+<h2>Our Professional Courses</h2>
+<p>Click on any course to see syllabus, duration and fees.</p>
+
+<div class="courses" id="courses">
+
+<div class="course">
+<h2>HTML</h2>
+<p>Web Development</p>
+<button onclick="showCourse('html')">View Details</button>
+</div>
+
+<div class="course">
+<h2>CSS</h2>
+<p>Web Designing</p>
+<button onclick="showCourse('css')">View Details</button>
+</div>
+
+<div class="course">
+<h2>JavaScript</h2>
+<p>Programming</p>
+<button onclick="showCourse('js')">View Details</button>
+</div>
+
+<div class="course">
+<h2>Core Java</h2>
+<p>Programming Language</p>
+<button onclick="showCourse('java')">View Details</button>
+</div>
+
+<div class="course">
+<h2>Python</h2>
+<p>Programming & Logic</p>
+<button onclick="showCourse('python')">View Details</button>
+</div>
+
+<div class="course">
+<h2>Advanced Excel</h2>
+<p>Office & Data Skills</p>
+<button onclick="showCourse('excel')">View Details</button>
+</div>
+
+</div>
+
+<div id="details">
+<h2 id="courseName"></h2>
+<h3>Complete Syllabus</h3>
+<ul id="syllabus"></ul>
+<h3 id="duration"></h3>
+<h3 id="fee"></h3>
+<button onclick="closeCourse()">Close Details</button>
+</div>
+</div>
+
+<footer id="contact">
+<h2>Contact Us</h2>
+<p>Raju Tech and Technology</p>
+<p>Mobile: 8127080670</p>
+<p>Email: classyshows9@gmail.com</p>
+<p>© 2026 All Rights Reserved</p>
+</footer>
+
+<script>
+const courses = {
+html: {
+name: "HTML Course",
+syllabus: ["Introduction to HTML","HTML Tags","Headings and Paragraphs","Lists and Links","Images and Tables","Forms","Colspan and Rowspan"],
+duration: "1 Month",
+fee: "₹499"
+},
+css: {
+name: "CSS Course",
+syllabus: ["CSS Introduction","Colors and Background","Fonts and Text","Selectors","Box Model","Flexbox","Responsive Design"],
+duration: "1 Month",
+fee: "₹599"
+},
+js: {
+name: "JavaScript Course",
+syllabus: ["Variables","Data Types","Operators","Functions","Conditions","Loops","DOM Manipulation","Events"],
+duration: "2 Months",
+fee: "₹999"
+},
+java: {
+name: "Core Java Course",
+syllabus: ["Java Basics","Variables","Data Types","OOP Concepts","Classes and Objects","Inheritance","Exception Handling","Collections"],
+duration: "3 Months",
+fee: "₹1499"
+},
+python: {
+name: "Python Course",
+syllabus: ["Python Introduction","Variables","Data Types","Operators","If Else","Loops","Functions","Lists and Dictionaries","Mini Projects"],
+duration: "2 Months",
+fee: "₹999"
+},
+excel: {
+name: "Advanced Excel Course",
+syllabus: ["Excel Basics","Formatting","IF Formula","VLOOKUP","XLOOKUP","SUMIF and COUNTIF","Pivot Table","Charts and Dashboard"],
+duration: "1 Month",
+fee: "₹699"
+}
+};
+
+function showCourse(id) {
+ const c = courses[id];
+ document.getElementById("courseName").innerText = c.name;
+ document.getElementById("syllabus").innerHTML =
+ c.syllabus.map(item => "<li>" + item + "</li>").join("");
+ document.getElementById("duration").innerText = "Duration: " + c.duration;
+ document.getElementById("fee").innerText = "Course Fee: " + c.fee;
+ document.getElementById("details").style.display = "block";
+ document.getElementById("details").scrollIntoView({behavior:"smooth"});
+}
+
+function closeCourse() {
+ document.getElementById("details").style.display = "none";
+}
+</script>
+
+</body>
+</html>
